@@ -13,7 +13,7 @@ import { NumberStatsComponent } from '../number-stats/number-stats.component';
 import { DateRangeComponent } from '../date-range/date-range.component';
 
 @Component({
-  selector: 'app-cashfive',
+  selector: 'app-lotto',
   standalone: true,
   imports: [
     MatButtonModule,
@@ -34,10 +34,10 @@ import { DateRangeComponent } from '../date-range/date-range.component';
     DateRangeComponent
   ],
   providers: [provideNativeDateAdapter()],
-  templateUrl: './cashfive.component.html',
-  styleUrl: './cashfive.component.scss'
+  templateUrl: './lotto.component.html',
+  styleUrl: './lotto.component.scss'
 })
-export class CashfiveComponent implements OnInit, AfterViewInit {
+export class LottoComponent implements OnInit, AfterViewInit {
   @ViewChild(MatAccordion) accordion: MatAccordion | undefined;
   startDate: any;
   endDate: any;
@@ -51,15 +51,15 @@ export class CashfiveComponent implements OnInit, AfterViewInit {
       "date": "2024-01-25T06:00:00.000Z",
       "number": "1 2 3 9 22",
       "oddCount": 3
-    }, 
+    },
     {
       "name": "Cash Five",
       "date": "2024-01-23T06:00:00.000Z",
       "number": "11 12 33 19 22",
       "oddCount": 3
     }];
-    this.service.getCashFiveData().subscribe((data: any) => {
-      console.log('Cash 5 data: ', this.service.getPrettyJson(data[0]));
+    this.service.getLottoData().subscribe((data: any) => {
+      console.log('Lotto data: ', this.service.getPrettyJson(data[0]));
       this.data = data;
     })
   }
@@ -72,5 +72,6 @@ export class CashfiveComponent implements OnInit, AfterViewInit {
     this.startDate = dateRange?.startDate;
     this.endDate = dateRange?.endDate;
   }
+
 
 }

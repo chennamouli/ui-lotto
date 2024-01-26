@@ -1,0 +1,11 @@
+:host {
+    .mat-badge-warn {
+        --mat-badge-background-color: #ccc
+    }
+    .app-badge {
+        margin-bottom: 25px;
+    }
+    .mat-expansion-panel-body {
+        display: block !important;
+    }
+}

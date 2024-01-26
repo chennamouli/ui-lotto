@@ -12,6 +12,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { HeaderComponent } from './header/header.component';
 import { SidenavListComponent } from './sidenav-list/sidenav-list.component';
+import { CommonModule, DatePipe } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -29,7 +31,10 @@ import { SidenavListComponent } from './sidenav-list/sidenav-list.component';
     MatListModule,
     RouterModule,
     MatExpansionModule,
-    MatTooltipModule
+    MatTooltipModule,
+    CommonModule,
+    HttpClientModule,
+    DatePipe
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'

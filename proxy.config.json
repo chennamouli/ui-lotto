@@ -1,0 +1,7 @@
+{
+  "/Games": {
+    "target": "https://www.texaslottery.com/export/sites/lottery/",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

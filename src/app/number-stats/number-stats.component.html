@@ -1,0 +1,42 @@
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Number Stats
+        </mat-panel-title>
+        <mat-panel-description>
+            <!-- Showing results -->&nbsp;
+            <mat-icon>stats</mat-icon>
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div fxLayout="column">
+        <div fxLayout="row" fxFlex="auto" fxLayoutGap="40px">
+            <mat-form-field>
+                <mat-label>Choose one</mat-label>
+                <mat-select [formControl]="selected">
+                  <mat-option value="1">Last 1 Draw</mat-option>
+                  <mat-option value="2">Last 2 Draws</mat-option>
+                  <mat-option value="3">Last 3 Draws</mat-option>
+                  <mat-option value="4">Last 4 Draws</mat-option>
+                  <mat-option value="5">Last 5 Draws</mat-option>
+                  <mat-option value="6">Last 6 Draws</mat-option>
+                  <mat-option value="7">Last 7 Draws</mat-option>
+                  <mat-option value="8">Last 8 Draws</mat-option>
+                  <mat-option value="9">Last 9 Draws</mat-option>
+                  <mat-option value="10">Last 10 Draws</mat-option>
+                </mat-select>
+              </mat-form-field>
+        </div>
+        <div *ngIf="badges" fxFlex="auto" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="40px">
+            <div *ngFor="let badge of badges">
+                <span fxLayout="column" *ngIf="badge.value == 0" class="app-badge" matBadge="{{ badge.label }}" matBadgeColor="warn" matBadgeSize="large" matBadgeOverlap="false">&nbsp;</span>
+                <span fxLayout="column" *ngIf="badge.value > 0 && badge.value <= 2" class="app-badge" matBadge="{{ badge.label }}" matBadgeColor="primary" matBadgeSize="large" matBadgeOverlap="false">&nbsp;</span>
+                <span fxLayout="column" *ngIf="badge.value > 2" class="app-badge" matBadge="{{ badge.label }}" matBadgeColor="accent" matBadgeSize="large" matBadgeOverlap="false">&nbsp;</span>
+            </div>
+        </div>
+        <div fxLayout="row" fxFlex="auto" fxLayoutGap="40px">
+            <span matBadge="1" matBadgeColor="primary" matBadgeSize="medium">Came &nbsp;&nbsp;&nbsp;</span>
+            <span matBadge="2" matBadgeColor="accent" matBadgeSize="medium">Came more than twice &nbsp;&nbsp;&nbsp;</span>
+            <span matBadge="3" matBadgeColor="warn" matBadgeSize="medium">Not came &nbsp;&nbsp;&nbsp;</span>
+        </div>
+    </div>
+</mat-expansion-panel>
