@@ -64,7 +64,7 @@
           "configurations": {
             "production": {
               "buildTarget": "ui-lotto:build:production",
-              "proxyConfig": "src/proxy.config.json"
+              "proxyConfig": "proxy.config.json"
             },
             "development": {
               "buildTarget": "ui-lotto:build:development"
