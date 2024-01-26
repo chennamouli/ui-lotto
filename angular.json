@@ -64,10 +64,11 @@
           "configurations": {
             "production": {
               "buildTarget": "ui-lotto:build:production",
-              "proxyConfig": "proxy.config.json"
+              "proxyConfig": "src/proxy.config.json"
             },
             "development": {
-              "buildTarget": "ui-lotto:build:development"
+              "buildTarget": "ui-lotto:build:development",
+              "proxyConfig": "src/proxy.config.json"
             }
           },
           "defaultConfiguration": "development"
