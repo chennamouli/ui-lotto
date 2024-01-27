@@ -1,0 +1,15 @@
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Results
+        </mat-panel-title>
+        <mat-panel-description>
+            Total results found: {{data?.length}}
+            <!-- <mat-icon>date_range</mat-icon> -->
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div *ngIf="data">
+        <ag-grid-angular style="width: 100%; height: 200px; min-height: 50vh" [columnDefs]="getColDefs()" [defaultColDef]="defaultColDef"
+            [rowData]="data" [class]="'ag-theme-quartz'" (gridReady)="onGridReady($event)"></ag-grid-angular>
+    </div>
+</mat-expansion-panel>
