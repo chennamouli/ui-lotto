@@ -1,6 +1,7 @@
 {
   "/Games": {
     "target": "https://www.texaslottery.com/export/sites/lottery/",
+    "target2": "http://localhost:4200/",
     "secure": false,
     "changeOrigin": true
   }

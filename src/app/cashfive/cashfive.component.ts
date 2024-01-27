@@ -48,14 +48,26 @@ export class CashfiveComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.data = [{
       "name": "Cash Five",
-      "date": "2024-01-25T06:00:00.000Z",
-      "number": "1 2 3 9 22",
+      "Date": "2024-01-25T06:00:00.000Z",
+      "SortedNumberArray": [
+        1,
+        2,
+        3,
+        9,
+        22
+      ],
       "oddCount": 3
     }, 
     {
       "name": "Cash Five",
-      "date": "2024-01-23T06:00:00.000Z",
-      "number": "11 12 33 19 22",
+      "Date": "2024-01-23T06:00:00.000Z",
+      "SortedNumberArray": [
+        31,
+        12,
+        23,
+        19,
+        22
+      ],
       "oddCount": 3
     }];
     this.service.getCashFiveData().subscribe((data: any) => {

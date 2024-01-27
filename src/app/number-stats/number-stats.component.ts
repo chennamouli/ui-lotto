@@ -62,7 +62,7 @@ export class NumberStatsComponent implements OnInit {
       result[i] = 0;
     }
     for (let i = 0; i <= selectedDraws - 1; i++) {
-      (this.data && this.data[i]?.number?.split(' ') || []).forEach((number: number) => {
+      (this.data && this.data[i]?.SortedNumberArray || []).forEach((number: number) => {
         result[number] = result[number] + 1;
       });
     }

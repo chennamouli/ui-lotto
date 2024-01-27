@@ -63,12 +63,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ui-lotto:build:production",
-              "proxyConfig": "src/proxy.config.json"
+              "buildTarget": "ui-lotto:build:production"
             },
             "development": {
-              "buildTarget": "ui-lotto:build:development",
-              "proxyConfig": "src/proxy.config.json"
+              "buildTarget": "ui-lotto:build:development"
             }
           },
           "defaultConfiguration": "development"

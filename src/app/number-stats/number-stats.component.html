@@ -13,16 +13,19 @@
             <mat-form-field>
                 <mat-label>Choose one</mat-label>
                 <mat-select [formControl]="selected">
-                  <mat-option value="1">Last 1 Draw</mat-option>
-                  <mat-option value="2">Last 2 Draws</mat-option>
-                  <mat-option value="3">Last 3 Draws</mat-option>
-                  <mat-option value="4">Last 4 Draws</mat-option>
-                  <mat-option value="5">Last 5 Draws</mat-option>
-                  <mat-option value="6">Last 6 Draws</mat-option>
-                  <mat-option value="7">Last 7 Draws</mat-option>
-                  <mat-option value="8">Last 8 Draws</mat-option>
-                  <mat-option value="9">Last 9 Draws</mat-option>
-                  <mat-option value="10">Last 10 Draws</mat-option>
+                  <mat-option value="1" *ngIf="data && data.length >= 1">Last 1 Draw</mat-option>
+                  <mat-option value="2" *ngIf="data && data.length >= 2">Last 2 Draws</mat-option>
+                  <mat-option value="3" *ngIf="data && data.length >= 3">Last 3 Draws</mat-option>
+                  <mat-option value="4" *ngIf="data && data.length >= 4">Last 4 Draws</mat-option>
+                  <mat-option value="5" *ngIf="data && data.length >= 5">Last 5 Draws</mat-option>
+                  <mat-option value="6" *ngIf="data && data.length >= 6">Last 6 Draws</mat-option>
+                  <mat-option value="7" *ngIf="data && data.length >= 7">Last 7 Draws</mat-option>
+                  <mat-option value="8" *ngIf="data && data.length >= 8">Last 8 Draws</mat-option>
+                  <mat-option value="9" *ngIf="data && data.length >= 9">Last 9 Draws</mat-option>
+                  <mat-option value="10" *ngIf="data && data.length >= 10">Last 10 Draws</mat-option>
+                  <mat-option value="25" *ngIf="data && data.length >= 25">Last 25 Draws</mat-option>
+                  <mat-option value="50" *ngIf="data && data.length >= 50">Last 50 Draws</mat-option>
+                  <mat-option value="100" *ngIf="data && data.length >= 100">Last 100 Draws</mat-option>
                 </mat-select>
               </mat-form-field>
         </div>

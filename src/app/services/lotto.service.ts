@@ -12,14 +12,21 @@ export class LottoService {
   constructor(private http: HttpClient) { }
 
   getCashFiveData() {
-    return this.getData(CASH_FIVE, this.getUrl(CASH_FIVE));
+    // return this.getData(CASH_FIVE, this.getUrl(CASH_FIVE));
+    return this.getLocalData(CASH_FIVE);
   }
 
   getLottoData() {
-    return this.getData(LOTTO, this.getUrl(LOTTO));
+    // return this.getData(LOTTO, this.getUrl(LOTTO));
+    return this.getLocalData(LOTTO);
+  }
+
+  getLocalData(game: string) {
+    return this.http.get(this.getUrl(game));
   }
 
   getData(game: string, url: string) {
+    // return (from(fetch('https://www.texaslottery.com/export/sites/lottery/'+url, { mode: 'no-cors' })) as any)
     return this.http.get(url, { headers: this.getHeaders(), responseType: 'text' })
       .pipe(map(fileText => {
         let rows = (<string>fileText).split(/\r\n|\n/);
@@ -92,10 +99,10 @@ export class LottoService {
     let url = '';
     switch (game) {
       case CASH_FIVE:
-        url = url + 'Games/Cash_Five/Winning_Numbers/cashfive.csv';
+        url = url + 'assets/cashfive.json';
         break;
       case LOTTO:
-        url = url + 'Games/Lotto_Texas/Winning_Numbers/lottotexas.csv';
+        url = url + 'assets/lottotexas.json';
         break;
       default:
         throw Error("Invalid Game Name! " + game);
