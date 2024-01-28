@@ -1,6 +1,32 @@
 [
     {
         "GameName":"Cash Five",
+        "Num1":6,
+        "Num2":17,
+        "Num3":22,
+        "Num4":23,
+        "Num5":33,
+        "Date":"2024-01-27T22:02:00",
+        "SortedNumberArray":[
+            6,
+            17,
+            22,
+            23,
+            33
+        ],
+        "Number":"6-17-22-23-33",
+        "OddNumbersCount":3,
+        "RepeatedNumbersFromLast1Games":"17",
+        "RepeatedNumbersFromLast1GamesCount":1,
+        "RepeatedNumbersFromLast3Games":"17-22",
+        "RepeatedNumbersFromLast3GamesCount":2,
+        "RepeatedNumbersFromLast6Games":"17-22-33",
+        "RepeatedNumbersFromLast6GamesCount":3,
+        "RepeatedNumbersFromLast7Games":"17-22-23-33",
+        "RepeatedNumbersFromLast7GamesCount":4
+    },
+    {
+        "GameName":"Cash Five",
         "Num1":12,
         "Num2":16,
         "Num3":17,
