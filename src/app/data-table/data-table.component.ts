@@ -43,7 +43,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 export class DataTableComponent implements OnInit {
   @Input() game: any | undefined;
   @Input() data: any[] | undefined;
-  private gridApi: GridApi | undefined;
+  public gridApi: GridApi | undefined;
   public columnDefs: ColDef[] = [];
   public columnDefs2: ColDef[] = [
     { field: 'athlete' },
@@ -79,6 +79,10 @@ export class DataTableComponent implements OnInit {
 
   onGridReady(params: GridReadyEvent<any>) {
     this.gridApi = params.api;
+  }
+
+  get displayedCount() {
+    return this.gridApi?.getDisplayedRowCount()
   }
 
   toggleOptionalColumns(){
