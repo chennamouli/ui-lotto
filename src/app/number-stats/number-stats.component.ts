@@ -49,7 +49,6 @@ export class NumberStatsComponent implements OnInit {
     this.selected.valueChanges
       .pipe(filter(value => !!value))
       .subscribe(data => {
-        console.log('Selected: ', data);
         this.updateBadges();
       })
   }
@@ -58,11 +57,12 @@ export class NumberStatsComponent implements OnInit {
     this.badges = [] as any;
     let result: any = {};
     const selectedDraws = this.selected.value || 0;
-    for (let i = 1; i <= this.getAllNumbers(this.game ?? ''); i++) {
+    for (let i = 0; i <= this.getAllNumbers(this.game ?? ''); i++) {
       result[i] = 0;
     }
     for (let i = 0; i <= selectedDraws - 1; i++) {
-      (this.data && this.data[i]?.SortedNumberArray || []).forEach((number: number) => {
+      const numbers = this.data ? this.data[i]?.SortedNumberArray : [];
+      numbers.forEach((number: number) => {
         result[number] = result[number] + 1;
       });
     }
@@ -78,7 +78,7 @@ export class NumberStatsComponent implements OnInit {
       case LOTTO:
         return 54;
       default:
-        break;
+        return 9
     }
     return 0;
   }

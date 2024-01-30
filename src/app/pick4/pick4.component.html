@@ -1,1 +1,11 @@
-<p>pick4 works!</p>
+<h1>Pick 4</h1>
+<h5>Last Updated: {{data?.[0].Date | date: 'medium'}}</h5>
+<div class="example-action-buttons">
+    <button mat-button (click)="accordion?.openAll()">Expand All</button>
+    <button mat-button (click)="accordion?.closeAll()">Collapse All</button>
+</div>
+<mat-accordion class="example-headers-align" multi>
+    <app-date-range (dateRange)="onSelectDateRange($event)"></app-date-range>
+    <app-data-table [data]="data" [game]="'PICK4'"></app-data-table>
+    <app-number-stats [data]="data" [game]="'PICK4'"></app-number-stats>
+</mat-accordion>

@@ -105,6 +105,7 @@ export class DataTableComponent implements OnInit {
         columnDefs.push({ 'field': key, 'filter': 'agTextColumnFilter', 'filterParams': customTextFilterParams });
       } else if(['Num1','Num2','Num3','Num4','Num5'].indexOf(key) >= 0) {
         columnDefs.push({ 'field': key, hide: true });
+        columnDefs.push({ 'field': key, hide: false });
       } else if(key.endsWith('Count')) {
         columnDefs.push({ 'field': key, filter: 'agNumberColumnFilter' });
       } else {

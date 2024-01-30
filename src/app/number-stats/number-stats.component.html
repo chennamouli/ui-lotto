@@ -31,9 +31,9 @@
         </div>
         <div *ngIf="badges" fxFlex="auto" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="40px">
             <div *ngFor="let badge of badges">
-                <span fxLayout="column" *ngIf="badge.value == 0" class="app-badge" matBadge="{{ badge.label }}" matBadgeColor="warn" matBadgeSize="large" matBadgeOverlap="false">&nbsp;</span>
-                <span fxLayout="column" *ngIf="badge.value > 0 && badge.value <= 2" class="app-badge" matBadge="{{ badge.label }}" matBadgeColor="primary" matBadgeSize="large" matBadgeOverlap="false">&nbsp;</span>
-                <span fxLayout="column" *ngIf="badge.value > 2" class="app-badge" matBadge="{{ badge.label }}" matBadgeColor="accent" matBadgeSize="large" matBadgeOverlap="false">&nbsp;</span>
+                <span fxLayout="column" *ngIf="badge.value == 0" class="app-badge" matBadge="{{ badge.label }}" matBadgeColor="warn" matBadgeSize="medium" matBadgeOverlap="false">&nbsp;</span>
+                <span fxLayout="column" *ngIf="badge.value > 0 && badge.value <= 2" class="app-badge" matBadge="{{ badge.label }}" matBadgeColor="primary" matBadgeSize="medium" matBadgeOverlap="false">&nbsp;</span>
+                <span fxLayout="column" *ngIf="badge.value > 2" class="app-badge" matBadge="{{ badge.label }}" matBadgeColor="accent" matBadgeSize="medium" matBadgeOverlap="false">&nbsp;</span>
             </div>
         </div>
         <div fxLayout="row" fxFlex="auto" fxLayoutGap="40px">
