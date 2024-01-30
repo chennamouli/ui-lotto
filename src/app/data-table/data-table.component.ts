@@ -105,6 +105,8 @@ export class DataTableComponent implements OnInit {
         columnDefs.push({ 'field': key, 'filter': 'agTextColumnFilter', 'filterParams': customTextFilterParams });
       } else if(['Num1','Num2','Num3','Num4','Num5'].indexOf(key) >= 0) {
         columnDefs.push({ 'field': key, hide: true });
+      } else if(key.endsWith('Count')) {
+        columnDefs.push({ 'field': key, filter: 'agNumberColumnFilter' });
       } else {
         columnDefs.push({ 'field': key });
       }
@@ -112,6 +114,14 @@ export class DataTableComponent implements OnInit {
     this.columnDefs = columnDefs;
     console.log('Coldefs: ', columnDefs)
     return columnDefs;
+  }
+
+  resetAllFilters() {
+    this.gridApi?.setFilterModel(null);
+  }
+
+  getCalculatePercentage(part: any, whole: any) {
+    return Math.round((part / whole) * 100);
   }
 
 }
@@ -159,6 +169,7 @@ var customTextFilterParams: ITextFilterParams = {
               return false;
       }
   }
+
 }
 
 function findCommonValues(array1: any[], array2: any[]) {
