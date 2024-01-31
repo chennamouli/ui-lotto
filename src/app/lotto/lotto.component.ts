@@ -11,6 +11,7 @@ import { CommonModule, DatePipe, JsonPipe } from '@angular/common';
 import { LottoService } from '../services/lotto.service';
 import { NumberStatsComponent } from '../number-stats/number-stats.component';
 import { DateRangeComponent } from '../date-range/date-range.component';
+import { DataTableComponent } from '../data-table/data-table.component';
 
 @Component({
   selector: 'app-lotto',
@@ -31,7 +32,8 @@ import { DateRangeComponent } from '../date-range/date-range.component';
     DatePipe,
     CommonModule,
     NumberStatsComponent,
-    DateRangeComponent
+    DateRangeComponent,
+    DataTableComponent
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './lotto.component.html',

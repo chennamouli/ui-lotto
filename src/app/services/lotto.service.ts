@@ -2,7 +2,7 @@ import { DatePipe } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { from, map, tap } from 'rxjs';
-import { CASH_FIVE, LOTTO, PICK4 } from '../app.constants';
+import { CASH_FIVE, LOTTO, PICK3, PICK4 } from '../app.constants';
 
 @Injectable({
   providedIn: 'root'
@@ -21,8 +21,11 @@ export class LottoService {
     return this.getLocalData(LOTTO);
   }
 
+  getPick3Data() {
+    return this.getLocalData(PICK3);
+  }
+
   getPick4Data() {
-    // return this.getData(CASH_FIVE, this.getUrl(CASH_FIVE));
     return this.getLocalData(PICK4);
   }
 
@@ -111,6 +114,9 @@ export class LottoService {
         break;
       case PICK4:
         url = url + 'assets/daily4.json';
+        break;
+      case PICK3:
+        url = url + 'assets/pick3.json';
         break;
       default:
         throw Error("Invalid Game Name! " + game);
