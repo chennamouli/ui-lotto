@@ -41,16 +41,15 @@ import { DataTableComponent } from '../data-table/data-table.component';
 })
 export class Pick3Component implements OnInit, AfterViewInit {
   @ViewChild(MatAccordion) accordion: MatAccordion | undefined;
-  startDate: any;
-  endDate: any;
-  data: any;
+  data: any;  // original data
+  selectedData: any; // based on the date selection
 
   constructor(private service: LottoService) { }
 
   ngOnInit(): void {
     this.service.getPick3Data().subscribe((data: any) => {
       console.log('Pick 4 data: ', this.service.getPrettyJson(data[0]));
-      this.data = data;
+      this.data = this.selectedData = data;
     })
   }
 
@@ -59,8 +58,7 @@ export class Pick3Component implements OnInit, AfterViewInit {
   }
 
   onSelectDateRange(dateRange: any) {
-    this.startDate = dateRange?.startDate;
-    this.endDate = dateRange?.endDate;
+    this.selectedData = this.service.filterByDateRange(dateRange, this.data);
   }
 
 }

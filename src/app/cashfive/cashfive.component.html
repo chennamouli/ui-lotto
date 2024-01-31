@@ -6,6 +6,6 @@
 </div>
 <mat-accordion class="example-headers-align" multi>
     <app-date-range (dateRange)="onSelectDateRange($event)"></app-date-range>
-    <app-data-table [data]="data" [game]="'CASH_FIVE'"></app-data-table>
-    <app-number-stats [data]="data" [game]="'CASH_FIVE'"></app-number-stats>
+    <app-data-table [data]="selectedData" [game]="'CASH_FIVE'"></app-data-table>
+    <app-number-stats [data]="selectedData" [game]="'CASH_FIVE'"></app-number-stats>
 </mat-accordion>

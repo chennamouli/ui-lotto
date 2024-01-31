@@ -41,40 +41,15 @@ import { DataTableComponent } from '../data-table/data-table.component';
 })
 export class CashfiveComponent implements OnInit, AfterViewInit {
   @ViewChild(MatAccordion) accordion: MatAccordion | undefined;
-  startDate: any;
-  endDate: any;
-  data: any;
+  data: any;  // original data
+  selectedData: any; // based on the date selection
 
   constructor(private service: LottoService) { }
 
   ngOnInit(): void {
-    // this.data = [{
-    //   "name": "Cash Five",
-    //   "Date": "2024-01-25T06:00:00.000Z",
-    //   "SortedNumberArray": [
-    //     1,
-    //     2,
-    //     3,
-    //     9,
-    //     22
-    //   ],
-    //   "oddCount": 3
-    // }, 
-    // {
-    //   "name": "Cash Five",
-    //   "Date": "2024-01-23T06:00:00.000Z",
-    //   "SortedNumberArray": [
-    //     31,
-    //     12,
-    //     23,
-    //     19,
-    //     22
-    //   ],
-    //   "oddCount": 3
-    // }];
     this.service.getCashFiveData().subscribe((data: any) => {
       console.log('Cash 5 data: ', this.service.getPrettyJson(data[0]));
-      this.data = data;
+      this.data = this.selectedData = data;
     })
   }
 
@@ -83,8 +58,7 @@ export class CashfiveComponent implements OnInit, AfterViewInit {
   }
 
   onSelectDateRange(dateRange: any) {
-    this.startDate = dateRange?.startDate;
-    this.endDate = dateRange?.endDate;
+    this.selectedData = this.service.filterByDateRange(dateRange, this.data);
   }
 
 }

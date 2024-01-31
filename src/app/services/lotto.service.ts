@@ -103,6 +103,17 @@ export class LottoService {
     }
   }
 
+  filterByDateRange(dateRange: any, data: any) {
+    let startDate = dateRange?.startDate;
+    if(!startDate) return data; // return all records if start date is null
+    let endDate = dateRange?.endDate || new Date(); //by default end date is today
+    endDate.setHours(23); // end of the day
+    return (data ?? []).filter((item: any) => {
+      const d = new Date(item['Date']);
+      return d >= startDate && d <= endDate;
+    })
+  }
+
   getUrl(game: string) {
     let url = '';
     switch (game) {
