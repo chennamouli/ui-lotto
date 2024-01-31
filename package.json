@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "python:run": "./src/python/run_stats.sh ./src/python/pick4.py && ./src/python/run_stats.sh ./src/python/cashfive.py && ./src/python/run_stats.sh ./src/python/lotto.py",
+    "python:run": "./src/python/run_stats.sh ./src/python/pick3.py && ./src/python/run_stats.sh ./src/python/pick4.py && ./src/python/run_stats.sh ./src/python/cashfive.py && ./src/python/run_stats.sh ./src/python/lotto.py",
     "build:github": "ng build --output-path docs --base-href https://chennamouli.github.io/ui-lotto/ && mv docs/browser/* docs/ && rm -d docs/browser",
     "publish:github": "git add . && git commit -m 'Built again!' && git push",
     "buildandpublish": "npm run python:run && npm run build:github && npm run publish:github"
