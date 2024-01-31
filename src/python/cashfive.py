@@ -20,8 +20,8 @@ def check_for_repeated_numbers(data: list, last_n_games: int):
 game = CASH_FIVE
 game_url = CASH_FIVE_URL
 game_columns = CASH_FIVE_COLUMNS
-# json_data = retrieve_game_data(game, [LOTTERY_BASE_URL + game_url], game_columns)
-json_data = retrieve_game_data(game, ['src/assets/'+game.lower()+'.csv'], game_columns)
+json_data = retrieve_game_data(game, [LOTTERY_BASE_URL + game_url], game_columns)
+# json_data = retrieve_game_data(game, ['src/assets/'+game.lower()+'.csv'], game_columns)
 check_for_repeated_numbers(json_data, 1)
 check_for_repeated_numbers(json_data, 2)
 check_for_repeated_numbers(json_data, 3)
