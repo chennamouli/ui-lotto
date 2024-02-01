@@ -44,6 +44,7 @@ def clean_up_data(game: str, data: list):
 
         if game == PICK3 or game == DAILY4:
             item['Number'] = ''.join(map(str, numbers))
+            item['NumberInt'] = int(item['Number'])
             # item['SortedDigitsNumber'] = ''.join(sorted(item['Number']))
             item['RepeatedNumbers'] = has_repeated_numbers(numbers)
             item['SumOfDigits'] = sum(numbers)

@@ -8,4 +8,5 @@
     <app-date-range (dateRange)="onSelectDateRange($event)"></app-date-range>
     <app-data-table [data]="selectedData" [game]="'PICK4'"></app-data-table>
     <app-number-stats [data]="selectedData" [game]="'PICK4'"></app-number-stats>
+    <app-hist-chart [data]="selectedData"></app-hist-chart>
 </mat-accordion>

@@ -14,6 +14,7 @@ import { HeaderComponent } from './header/header.component';
 import { SidenavListComponent } from './sidenav-list/sidenav-list.component';
 import { CommonModule, DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { AgChartsAngularModule } from 'ag-charts-angular';
 
 @Component({
   selector: 'app-root',
@@ -34,7 +35,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatTooltipModule,
     CommonModule,
     HttpClientModule,
-    DatePipe
+    DatePipe,
+    AgChartsAngularModule
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
