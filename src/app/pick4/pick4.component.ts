@@ -12,6 +12,7 @@ import { LottoService } from '../services/lotto.service';
 import { NumberStatsComponent } from '../number-stats/number-stats.component';
 import { DateRangeComponent } from '../date-range/date-range.component';
 import { DataTableComponent } from '../data-table/data-table.component';
+import { HistChartComponent } from '../hist-chart/hist-chart.component';
 
 @Component({
   selector: 'app-pick4',
@@ -33,7 +34,8 @@ import { DataTableComponent } from '../data-table/data-table.component';
     CommonModule,
     NumberStatsComponent,
     DateRangeComponent,
-    DataTableComponent
+    DataTableComponent,
+    HistChartComponent
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './pick4.component.html',
