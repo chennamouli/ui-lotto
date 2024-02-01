@@ -12,6 +12,7 @@ import { LottoService } from '../services/lotto.service';
 import { NumberStatsComponent } from '../number-stats/number-stats.component';
 import { DateRangeComponent } from '../date-range/date-range.component';
 import { DataTableComponent } from '../data-table/data-table.component';
+import { HistChartComponent } from '../hist-chart/hist-chart.component';
 
 @Component({
   selector: 'app-lotto',
@@ -33,7 +34,8 @@ import { DataTableComponent } from '../data-table/data-table.component';
     CommonModule,
     NumberStatsComponent,
     DateRangeComponent,
-    DataTableComponent
+    DataTableComponent,
+    HistChartComponent
   ],
   providers: [provideNativeDateAdapter()],
   templateUrl: './lotto.component.html',
@@ -43,6 +45,7 @@ export class LottoComponent implements OnInit, AfterViewInit {
   @ViewChild(MatAccordion) accordion: MatAccordion | undefined;
   data: any;  // original data
   selectedData: any; // based on the date selection
+  histData: any;
 
   constructor(private service: LottoService) { }
 
@@ -59,6 +62,7 @@ export class LottoComponent implements OnInit, AfterViewInit {
 
   onSelectDateRange(dateRange: any) {
     this.selectedData = this.service.filterByDateRange(dateRange, this.data);
+    this.histData = this.service.mapToHistData(this.selectedData);
   }
 
 

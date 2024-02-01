@@ -114,6 +114,16 @@ export class LottoService {
     })
   }
 
+  mapToHistData(data: any) {
+    const temp:any = [];
+    data.map((item: any) => {
+      item['SortedNumberArray'].forEach((value: any) => {
+        temp.push({'NumberInt': value});
+      });
+    })
+    return temp;
+  }
+
   getUrl(game: string) {
     let url = '';
     switch (game) {

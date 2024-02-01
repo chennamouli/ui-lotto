@@ -1,6 +1,26 @@
 [
     {
         "GameName":"Lotto Texas",
+        "Num1":9,
+        "Num2":18,
+        "Num3":41,
+        "Num4":7,
+        "Num5":20,
+        "Num6":19,
+        "Date":"2024-01-31T22:02:00",
+        "Number":"7-9-18-19-20-41",
+        "SortedNumberArray":[
+            7,
+            9,
+            18,
+            19,
+            20,
+            41
+        ],
+        "OddNumbersCount":4
+    },
+    {
+        "GameName":"Lotto Texas",
         "Num1":22,
         "Num2":13,
         "Num3":6,

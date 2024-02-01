@@ -1,17 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatIconModule } from '@angular/material/icon';
 import { AgChartsAngularModule } from 'ag-charts-angular';
 import { AgChartOptions, AgCharts } from "ag-charts-community";
 
 @Component({
   selector: 'app-hist-chart',
   standalone: true,
-  imports: [AgChartsAngularModule, CommonModule],
+  imports: [AgChartsAngularModule, CommonModule, MatIconModule, MatExpansionModule],
   templateUrl: './hist-chart.component.html',
   styleUrl: './hist-chart.component.scss'
 })
 export class HistChartComponent implements OnInit, OnChanges{
   @Input() data: any[] | undefined;
+  @Input() title: string | undefined;
+
+  @Input() xKey: string | undefined;
 
 
   public options: AgChartOptions;
@@ -32,13 +37,14 @@ export class HistChartComponent implements OnInit, OnChanges{
   drawChart() {
     this.options = {
       title: {
-        text: "Number Histogram",
+        text: this.title ?? "Number Histogram",
       },
+      autoSize: true,
       data: this.data,
       series: [
         {
           type: "histogram",
-          xKey: "NumberInt",
+          xKey: this.xKey ?? "NumberInt",
           xName: "Numbers",
         },
       ],

@@ -1,1 +1,14 @@
-<ag-charts-angular style="height: 100%" *ngIf="data" [options]="options"></ag-charts-angular>
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            Number Histograms
+        </mat-panel-title>
+        <mat-panel-description>
+            <!-- Showing results -->&nbsp;
+            <mat-icon>bar_chart</mat-icon>
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start">
+        <ag-charts-angular style="height: 100%" *ngIf="data" [options]="options"></ag-charts-angular>
+  </div>
+</mat-expansion-panel>

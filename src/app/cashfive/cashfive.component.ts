@@ -45,6 +45,7 @@ export class CashfiveComponent implements OnInit, AfterViewInit {
   @ViewChild(MatAccordion) accordion: MatAccordion | undefined;
   data: any;  // original data
   selectedData: any; // based on the date selection
+  histData: any;
 
   constructor(private service: LottoService) { }
 
@@ -61,6 +62,11 @@ export class CashfiveComponent implements OnInit, AfterViewInit {
 
   onSelectDateRange(dateRange: any) {
     this.selectedData = this.service.filterByDateRange(dateRange, this.data);
+    this.histData = this.service.mapToHistData(this.selectedData);
   }
+
+
+
+  
 
 }
