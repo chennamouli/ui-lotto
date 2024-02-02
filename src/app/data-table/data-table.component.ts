@@ -43,6 +43,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 export class DataTableComponent implements OnInit {
   @Input() game: any | undefined;
   @Input() data: any[] | undefined;
+  public hideOptionalColumns: boolean = true;
   public gridApi: GridApi | undefined;
   public columnDefs: ColDef[] = [];
   
@@ -65,6 +66,7 @@ export class DataTableComponent implements OnInit {
 
   onGridReady(params: GridReadyEvent<any>) {
     this.gridApi = params.api;
+    this.toggleOptionalColumns();
   }
 
   get displayedCount() {
@@ -72,11 +74,8 @@ export class DataTableComponent implements OnInit {
   }
 
   toggleOptionalColumns(){
-    this.gridApi?.getColumnDefs()?.forEach((col: ColDef) => {
-      if(['Num1'].indexOf(col.field as any) >=0)  {
-        col.hide = false;
-      }
-    })
+    this.hideOptionalColumns = !this.hideOptionalColumns;
+    this.gridApi?.setColumnsVisible(["GameName", "Num1", "Num2", "Num3", "Num4", "Num5", "Number"], this.hideOptionalColumns);
     this.gridApi?.refreshCells();
   }
 
@@ -90,7 +89,7 @@ export class DataTableComponent implements OnInit {
       } else if (key.toLowerCase().indexOf('SortedNumberArray'.toLowerCase()) >= 0) {
         columnDefs.push({ 'field': key, 'filter': 'agTextColumnFilter', 'filterParams': customTextFilterParams });
       } else if(['Num1','Num2','Num3','Num4','Num5'].indexOf(key) >= 0) {
-        columnDefs.push({ 'field': key, hide: true });
+        // columnDefs.push({ 'field': key, hide: true });
         columnDefs.push({ 'field': key, hide: false });
       } else if(key.endsWith('Count')) {
         columnDefs.push({ 'field': key, filter: 'agNumberColumnFilter' });
