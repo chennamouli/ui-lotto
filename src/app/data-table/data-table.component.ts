@@ -45,21 +45,7 @@ export class DataTableComponent implements OnInit {
   @Input() data: any[] | undefined;
   public gridApi: GridApi | undefined;
   public columnDefs: ColDef[] = [];
-  public columnDefs2: ColDef[] = [
-    { field: 'athlete' },
-    { field: 'age', filter: 'agNumberColumnFilter', maxWidth: 100 },
-    {
-      field: 'date',
-      filter: 'agDateColumnFilter',
-      filterParams: filterParams,
-    },
-    { field: 'country', filter: 'agSetColumnFilter' },
-    { field: 'sport', filter: 'agMultiColumnFilter' },
-    { field: 'gold', filter: 'agNumberColumnFilter' },
-    { field: 'silver', filter: 'agNumberColumnFilter' },
-    { field: 'bronze', filter: 'agNumberColumnFilter' },
-    { field: 'total', filter: false },
-  ];
+  
   public defaultColDef: ColDef = {
     flex: 1,
     minWidth: 200,

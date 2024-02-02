@@ -22,7 +22,7 @@ export class HistChartComponent implements OnInit, OnChanges{
   public options: AgChartOptions;
 
   constructor() {
-    // this.data = [ { Num1: 20, }, { Num1: 25, }];
+    // this.data = [ { NumberInt: 4, }, { NumberInt: 5, }, { NumberInt: 3, }, { NumberInt: 2, }, { NumberInt: 16, }, { NumberInt: 27, }];
     this.options = {};
   }
 
@@ -31,7 +31,7 @@ export class HistChartComponent implements OnInit, OnChanges{
   }
 
   ngOnInit(): void {
-    this.drawChart();
+    // this.drawChart();
   }
 
   drawChart() {
