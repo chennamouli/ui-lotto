@@ -99,3 +99,83 @@ def count_odd_numbers(list):
         if x % 2:
             count_odd += 1
     return count_odd
+
+def findCommonValues(array1, array2):
+    set1 = set(array1)
+    return [elem for elem in array2 if elem in set1]
+
+# Function to calculate the probability of each number in an array
+def probabilityOfNumbers(numbers):
+    total_elements = len(numbers)
+    frequency_dict = {}
+    for num in numbers:
+        frequency_dict[num] = frequency_dict.get(num, 0) + 1
+    return [{'number': num, 'value': freq / total_elements } for num, freq in frequency_dict.items()]
+
+
+def updatePred2(json_data: list, lastNgames: int):
+    nextPredNumbers = []
+    for index, data in enumerate(json_data):
+        # Given data
+        arrayOfLastNGames = [other_item["SortedNumberArray"] for other_item in json_data[index:index+lastNgames]]
+        print(f'arrayOfLastNGames: {index} - {arrayOfLastNGames}')
+        arrayOfLastNGames = np.concatenate(arrayOfLastNGames) if arrayOfLastNGames else np.array([])
+        prob_dict = probabilityOfNumbers(arrayOfLastNGames)
+        print(f'prob_dict: {index} - {prob_dict}')
+        prob_dict = sorted(prob_dict, key=lambda x: x["value"])
+        selectedFiveNumbers = prob_dict[:5]
+        predTempList = [item['number'] for item in selectedFiveNumbers]
+        print(f'predTempList: {index} - {predTempList}')
+        if index == 0:
+            nextPredNumbers = predTempList
+        else:
+            json_data[index-1]['Pred2'] = sorted(predTempList)
+            json_data[index-1]['Pred2MatchCount'] = len(findCommonValues(predTempList, json_data[index-1]["SortedNumberArray"]))
+    print('updatePred2, nextPredNumbers!!', sorted(nextPredNumbers))
+    
+def updatePred1(json_data: list):
+    for index, data in enumerate(json_data):
+        # Given data
+        arrayOfLastNGames = [other_item["SortedNumberArray"] for other_item in json_data[index:index+6]]
+        mergedNumbersArray = np.concatenate(arrayOfLastNGames) if arrayOfLastNGames else np.array([])
+
+        # Find missing numbers
+        missing_numbers = [num for num in range(1, 36) if num not in set(mergedNumbersArray)]
+
+        # Processing for arrayOfLastN2Games
+        arrayOfLastN2Games = [other_item["SortedNumberArray"] for other_item in json_data[index:min(index+9, len(json_data))]]
+        mergedN2NumbersArray = np.concatenate(arrayOfLastN2Games) if arrayOfLastN2Games else np.array([])
+
+        # Find common numbers between mergedN2NumbersArray and missing_numbers
+        mergedCommonNumbersArray = findCommonValues(mergedN2NumbersArray, missing_numbers)
+        
+        # Calculate probability of numbers in mergedCommonNumbersArray and sort
+        probability_of_missed = probabilityOfNumbers(mergedCommonNumbersArray)
+        sorted_probability_of_missed = sorted(probability_of_missed, key=lambda x: x["value"])
+
+        # Calculate probability of numbers in mergedN2NumbersArray and sort
+        probability_of_repeated_n2 = probabilityOfNumbers(mergedN2NumbersArray)
+        sorted_probability_of_repeated_n2 = sorted(probability_of_repeated_n2, key=lambda x: x["value"])
+
+        
+
+        # Retrieve the first 2 elements from sorted_array_common and the last 3 elements from sorted_array_n2
+        # result = sorted_probability_of_missed[:2] + sorted_probability_of_repeated_n2[:1] + sorted_probability_of_repeated_n2[-2:] #7, 14 days, 23%
+        #7, 14 days, 23%, #7, 10 days, 34%, #7, 9 days, 35%, #9, 11 days, 33%, #7, 8 days 41%
+        result = sorted_probability_of_missed[:1] + sorted_probability_of_missed[-1:] + sorted_probability_of_repeated_n2[:1] + sorted_probability_of_repeated_n2[-2:] 
+        # result = sorted_probability_of_missed[:2] + sorted_probability_of_repeated_n2[-3:] #11%
+        result = [item['number'] for item in result]
+        result = sorted(result)
+        if index == 0:
+            nextPredNumbers = result
+        else:
+            json_data[index-1]['Pred1'] = result
+            json_data[index-1]['Pred1MatchCount'] = len(findCommonValues(result, json_data[index-1]["SortedNumberArray"]))
+            
+        data['Pred1'] = sorted(result)
+        data['Pred1MatchCount'] = len(findCommonValues(result, data["SortedNumberArray"]))
+        # print(f'Predict {result}, Actual {data["SortedNumberArray"]}, Matched { len(findCommonValues(result, data["SortedNumberArray"])) }')
+        print('updatePred2, nextPredNumbers!!', sorted(nextPredNumbers))
+        
+        
+        

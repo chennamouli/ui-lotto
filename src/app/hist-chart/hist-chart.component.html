@@ -10,5 +10,7 @@
     </mat-expansion-panel-header>
     <div fxLayout="row wrap" fxLayoutGap="32px" fxLayoutAlign="flex-start">
         <ag-charts-angular style="height: 100%" *ngIf="data" [options]="options"></ag-charts-angular>
+        <!-- <div>{{prob_dict | json }}</div> -->
+        Probability: <span *ngFor="let item of prob_dict"> {{item.number}}: {{item.probability}}% &nbsp;&nbsp;&nbsp;</span>
   </div>
 </mat-expansion-panel>
