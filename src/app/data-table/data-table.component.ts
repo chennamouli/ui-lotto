@@ -69,6 +69,17 @@ export class DataTableComponent implements OnInit {
     this.toggleOptionalColumns();
   }
 
+  onSearch() {
+    this.gridApi?.setGridOption(
+      'quickFilterText',
+      (document.getElementById('filter-text-box') as HTMLInputElement).value
+    );
+  }
+
+  onClear() {
+    (document.getElementById('filter-text-box') as HTMLInputElement).value = '';
+  }
+
   get displayedCount() {
     return this.gridApi?.getDisplayedRowCount()
   }
@@ -145,7 +156,7 @@ var customTextFilterParams: ITextFilterParams = {
           case 'notEqual':
               return value != filterText;
           case 'startsWith':
-              return value.indexOf(filterText) === 0;
+              return findCommonValues(value.split(/[,\s-]+/), filterText.trim().split(/[,\s-]+/)).length > 1; //value.indexOf(filterText) === 0;
           case 'endsWith':
               const index = value.lastIndexOf(filterText);
               return index >= 0 && index === (value.length - filterText.length);

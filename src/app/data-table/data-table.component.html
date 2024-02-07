@@ -14,10 +14,21 @@
             <button mat-button color="accent" (click)="toggleOptionalColumns()">Toggle Optional Columns</button>
             <button mat-button color="primary" (click)="resetAllFilters()">Reset All Filters</button>
         </div>
+        <div fxLayout="row">
+            <mat-form-field>
+                <mat-label>Search</mat-label>
+                <input id="filter-text-box" matInput (input)="onSearch()">
+            </mat-form-field>
+            <button mat-button color="primary" (click)="onClear()">Clear</button>
+        </div>
         <ag-grid-angular style="width: 100%; height: 200px; min-height: 50vh" 
             [columnDefs]="getColDefs()" 
             [defaultColDef]="defaultColDef"
             [rowData]="data" 
+            [enableCellTextSelection]="true"
+            [enableRangeHandle]="true"
+            [enableRangeSelection]="true"
+            [copyHeadersToClipboard]="false"
             [class]="'ag-theme-quartz'" 
             (gridReady)="onGridReady($event)"></ag-grid-angular>
     </div>
