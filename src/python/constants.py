@@ -29,3 +29,8 @@ MEGA_MILLIONS_URL = 'Mega_Millions/Winning_Numbers/megamillions.csv'
 MEGA_MILLIONS_COLUMNS = ['GameName', 'Month', 'Day', 'Year', 'Num1', 'Num2', 'Num3', 'Num4', 'Num5', 'BALL', 'MULTIPLIER']
 
 
+TWO_STEP = 'TWO_STEP'
+TWO_STEP_URL = 'Texas_Two_Step/Winning_Numbers/texastwostep.csv'
+TWO_STEP_COLUMNS = ['GameName', 'Month', 'Day', 'Year', 'Num1', 'Num2', 'Num3', 'Num4', 'BALL']
+
+

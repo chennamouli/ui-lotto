@@ -10,7 +10,7 @@ import { CommonModule, DatePipe, JsonPipe } from '@angular/common';
 import { MatBadgeModule } from '@angular/material/badge';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatSelectModule } from '@angular/material/select';
-import { CASH_FIVE, LOTTO, MEGA_MILLIONS } from '../app.constants';
+import { CASH_FIVE, LOTTO, MEGA_MILLIONS, TWO_STEP } from '../app.constants';
 import { filter } from 'rxjs';
 
 @Component({
@@ -40,6 +40,7 @@ import { filter } from 'rxjs';
 })
 export class NumberStatsComponent implements OnInit {
   badges: [{ 'label': any; 'value': number; }] | undefined;
+  balls: [{ 'label': any; 'value': number; }] | undefined;
   @Input() game: any | undefined;
   @Input() data: any[] | undefined;
 
@@ -55,25 +56,35 @@ export class NumberStatsComponent implements OnInit {
 
   updateBadges() {
     this.badges = [] as any;
+    this.balls = [] as any;
     let result: any = {};
+    let resultBalls: any = {};
     const selectedDraws = this.selected.value || 0;
     for (let i = 0; i <= this.getAllNumbers(this.game ?? ''); i++) {
       result[i] = 0;
+      resultBalls[i] = 0;
     }
     for (let i = 0; i <= selectedDraws - 1; i++) {
       const numbers = this.data ? this.data[i]?.SortedNumberArray : [];
       numbers.forEach((number: number) => {
         result[number] = result[number] + 1;
       });
+      const ball = this.data ? this.data[i]?.BALL : 0;
+      resultBalls[ball] = resultBalls[ball] + 1;
     }
     Object.keys(result).forEach(key => {
       this.badges?.push({ label: key, value: result[key] });
+    });
+    Object.keys(resultBalls).forEach(key => {
+      this.balls?.push({ label: key, value: resultBalls[key] });
     });
   }
 
   getAllNumbers(game: string) {
     switch (game) {
       case CASH_FIVE:
+        return 35;
+      case TWO_STEP:
         return 35;
       case LOTTO:
         return 54;

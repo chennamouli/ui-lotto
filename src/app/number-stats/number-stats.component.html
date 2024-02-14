@@ -43,6 +43,13 @@
                 <span fxLayout="column" *ngIf="badge.value > 1" class="app-badge" matBadge="{{ badge.label }}" matBadgeColor="accent" matBadgeSize="medium" matBadgeOverlap="false">&nbsp;</span>
             </div>
         </div>
+        <div *ngIf="balls && (game == 'TWO_STEP' || game == 'MEGA_MILLIONS')" fxFlex="auto" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="40px">
+            <div *ngFor="let ball of balls">
+                <span fxLayout="column" *ngIf="ball.value == 0" class="app-badge" matBadge="{{ ball.label }}" matBadgeColor="warn" matBadgeSize="medium" matBadgeOverlap="false">&nbsp;</span>
+                <span fxLayout="column" *ngIf="ball.value > 0 && ball.value <= 1" class="app-badge" matBadge="{{ ball.label }}" matBadgeColor="primary" matBadgeSize="medium" matBadgeOverlap="false">&nbsp;</span>
+                <span fxLayout="column" *ngIf="ball.value > 1" class="app-badge" matBadge="{{ ball.label }}" matBadgeColor="accent" matBadgeSize="medium" matBadgeOverlap="false">&nbsp;</span>
+            </div>
+        </div>
         <div fxLayout="row" fxFlex="auto" fxLayoutGap="40px">
             <span matBadge="1" matBadgeColor="primary" matBadgeSize="medium">Came &nbsp;&nbsp;&nbsp;</span>
             <span matBadge="2" matBadgeColor="accent" matBadgeSize="medium">Came more than once &nbsp;&nbsp;&nbsp;</span>
