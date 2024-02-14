@@ -2,7 +2,7 @@ import { DatePipe } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { from, map, tap } from 'rxjs';
-import { CASH_FIVE, LOTTO, PICK3, PICK4 } from '../app.constants';
+import { CASH_FIVE, LOTTO, MEGA_MILLIONS, PICK3, PICK4 } from '../app.constants';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,11 @@ export class LottoService {
   getLottoData() {
     // return this.getData(LOTTO, this.getUrl(LOTTO));
     return this.getLocalData(LOTTO);
+  }
+
+  getMegaMillionsData() {
+    // return this.getData(CASH_FIVE, this.getUrl(CASH_FIVE));
+    return this.getLocalData(MEGA_MILLIONS);
   }
 
   getPick3Data() {
@@ -132,6 +137,9 @@ export class LottoService {
         break;
       case LOTTO:
         url = url + 'assets/lotto.json';
+        break;
+      case MEGA_MILLIONS:
+        url = url + 'assets/mega_millions.json';
         break;
       case PICK4:
         url = url + 'assets/daily4.json';

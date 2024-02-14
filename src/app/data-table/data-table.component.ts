@@ -99,7 +99,7 @@ export class DataTableComponent implements OnInit {
         columnDefs.push({ 'field': key, pinned: 'left', 'filter': 'agDateColumnFilter', 'filterParams': filterParams });
       } else if (key.toLowerCase().indexOf('SortedNumberArray'.toLowerCase()) >= 0) {
         columnDefs.push({ 'field': key, 'filter': 'agTextColumnFilter', 'filterParams': customTextFilterParams });
-      } else if(['Num1','Num2','Num3','Num4','Num5'].indexOf(key) >= 0) {
+      } else if(['Num1','Num2','Num3','Num4','Num5', 'BALL', 'MULTIPLIER'].indexOf(key) >= 0) {
         // columnDefs.push({ 'field': key, hide: true });
         columnDefs.push({ 'field': key, filter: 'agNumberColumnFilter' });
       } else if(key.endsWith('Count')) {
@@ -156,7 +156,7 @@ var customTextFilterParams: ITextFilterParams = {
           case 'notEqual':
               return value != filterText;
           case 'startsWith':
-              return findCommonValues(value.split(/[,\s-]+/), filterText.trim().split(/[,\s-]+/)).length > 1; //value.indexOf(filterText) === 0;
+              return findCommonValues(value.split(/[,\s-]+/), filterText.trim().split(/[,\s-]+/)).length > 2; //value.indexOf(filterText) === 0;
           case 'endsWith':
               const index = value.lastIndexOf(filterText);
               return index >= 0 && index === (value.length - filterText.length);

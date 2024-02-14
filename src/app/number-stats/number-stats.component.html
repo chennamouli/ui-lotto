@@ -23,8 +23,15 @@
                   <mat-option value="8" *ngIf="data && data.length >= 8">Last 8 Draws</mat-option>
                   <mat-option value="9" *ngIf="data && data.length >= 9">Last 9 Draws</mat-option>
                   <mat-option value="10" *ngIf="data && data.length >= 10">Last 10 Draws</mat-option>
+                  <mat-option value="11" *ngIf="data && data.length >= 11">Last 11 Draws</mat-option>
+                  <mat-option value="12" *ngIf="data && data.length >= 12">Last 12 Draws</mat-option>
+                  <mat-option value="13" *ngIf="data && data.length >= 13">Last 13 Draws</mat-option>
+                  <mat-option value="14" *ngIf="data && data.length >= 14">Last 14 Draws</mat-option>
+                  <mat-option value="15" *ngIf="data && data.length >= 15">Last 15 Draws</mat-option>
+                  <mat-option value="25" *ngIf="data && data.length >= 25">Last 20 Draws</mat-option>
                   <mat-option value="25" *ngIf="data && data.length >= 25">Last 25 Draws</mat-option>
                   <mat-option value="50" *ngIf="data && data.length >= 50">Last 50 Draws</mat-option>
+                  <mat-option value="75" *ngIf="data && data.length >= 75">Last 75 Draws</mat-option>
                   <mat-option value="100" *ngIf="data && data.length >= 100">Last 100 Draws</mat-option>
                 </mat-select>
               </mat-form-field>
@@ -32,13 +39,13 @@
         <div *ngIf="badges" fxFlex="auto" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap="40px">
             <div *ngFor="let badge of badges">
                 <span fxLayout="column" *ngIf="badge.value == 0" class="app-badge" matBadge="{{ badge.label }}" matBadgeColor="warn" matBadgeSize="medium" matBadgeOverlap="false">&nbsp;</span>
-                <span fxLayout="column" *ngIf="badge.value > 0 && badge.value <= 2" class="app-badge" matBadge="{{ badge.label }}" matBadgeColor="primary" matBadgeSize="medium" matBadgeOverlap="false">&nbsp;</span>
-                <span fxLayout="column" *ngIf="badge.value > 2" class="app-badge" matBadge="{{ badge.label }}" matBadgeColor="accent" matBadgeSize="medium" matBadgeOverlap="false">&nbsp;</span>
+                <span fxLayout="column" *ngIf="badge.value > 0 && badge.value <= 1" class="app-badge" matBadge="{{ badge.label }}" matBadgeColor="primary" matBadgeSize="medium" matBadgeOverlap="false">&nbsp;</span>
+                <span fxLayout="column" *ngIf="badge.value > 1" class="app-badge" matBadge="{{ badge.label }}" matBadgeColor="accent" matBadgeSize="medium" matBadgeOverlap="false">&nbsp;</span>
             </div>
         </div>
         <div fxLayout="row" fxFlex="auto" fxLayoutGap="40px">
             <span matBadge="1" matBadgeColor="primary" matBadgeSize="medium">Came &nbsp;&nbsp;&nbsp;</span>
-            <span matBadge="2" matBadgeColor="accent" matBadgeSize="medium">Came more than twice &nbsp;&nbsp;&nbsp;</span>
+            <span matBadge="2" matBadgeColor="accent" matBadgeSize="medium">Came more than once &nbsp;&nbsp;&nbsp;</span>
             <span matBadge="3" matBadgeColor="warn" matBadgeSize="medium">Not came &nbsp;&nbsp;&nbsp;</span>
         </div>
     </div>

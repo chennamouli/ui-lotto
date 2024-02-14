@@ -10,7 +10,7 @@ import { CommonModule, DatePipe, JsonPipe } from '@angular/common';
 import { MatBadgeModule } from '@angular/material/badge';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatSelectModule } from '@angular/material/select';
-import { CASH_FIVE, LOTTO } from '../app.constants';
+import { CASH_FIVE, LOTTO, MEGA_MILLIONS } from '../app.constants';
 import { filter } from 'rxjs';
 
 @Component({
@@ -77,6 +77,8 @@ export class NumberStatsComponent implements OnInit {
         return 35;
       case LOTTO:
         return 54;
+      case MEGA_MILLIONS:
+        return 70;
       default:
         return 9
     }

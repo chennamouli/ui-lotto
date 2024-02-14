@@ -22,3 +22,10 @@ DAILY4_DAY_URL = 'Daily_4/Winning_Numbers/daily4day.csv'
 DAILY4_EVENING_URL = 'Daily_4/Winning_Numbers/daily4evening.csv'
 DAILY4_NIGHT_URL = 'Daily_4/Winning_Numbers/daily4night.csv'
 DAILY4_COLUMNS = ['GameName', 'Month', 'Day', 'Year', 'Num1', 'Num2', 'Num3', 'Num4', 'Ball1', 'Ball2']
+
+
+MEGA_MILLIONS = 'MEGA_MILLIONS'
+MEGA_MILLIONS_URL = 'Mega_Millions/Winning_Numbers/megamillions.csv'
+MEGA_MILLIONS_COLUMNS = ['GameName', 'Month', 'Day', 'Year', 'Num1', 'Num2', 'Num3', 'Num4', 'Num5', 'BALL', 'MULTIPLIER']
+
+
