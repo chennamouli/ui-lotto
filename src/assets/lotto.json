@@ -1,6 +1,86 @@
 [
     {
         "GameName":"Lotto Texas",
+        "Num1":18,
+        "Num2":6,
+        "Num3":53,
+        "Num4":42,
+        "Num5":44,
+        "Num6":26,
+        "Date":"2024-02-21T22:02:00",
+        "Number":"6-18-26-42-44-53",
+        "SortedNumberArray":[
+            6,
+            18,
+            26,
+            42,
+            44,
+            53
+        ],
+        "OddNumbersCount":1
+    },
+    {
+        "GameName":"Lotto Texas",
+        "Num1":52,
+        "Num2":39,
+        "Num3":10,
+        "Num4":7,
+        "Num5":19,
+        "Num6":29,
+        "Date":"2024-02-19T22:02:00",
+        "Number":"7-10-19-29-39-52",
+        "SortedNumberArray":[
+            7,
+            10,
+            19,
+            29,
+            39,
+            52
+        ],
+        "OddNumbersCount":4
+    },
+    {
+        "GameName":"Lotto Texas",
+        "Num1":3,
+        "Num2":26,
+        "Num3":11,
+        "Num4":14,
+        "Num5":41,
+        "Num6":35,
+        "Date":"2024-02-17T22:02:00",
+        "Number":"3-11-14-26-35-41",
+        "SortedNumberArray":[
+            3,
+            11,
+            14,
+            26,
+            35,
+            41
+        ],
+        "OddNumbersCount":4
+    },
+    {
+        "GameName":"Lotto Texas",
+        "Num1":33,
+        "Num2":9,
+        "Num3":23,
+        "Num4":50,
+        "Num5":11,
+        "Num6":5,
+        "Date":"2024-02-14T22:02:00",
+        "Number":"5-9-11-23-33-50",
+        "SortedNumberArray":[
+            5,
+            9,
+            11,
+            23,
+            33,
+            50
+        ],
+        "OddNumbersCount":5
+    },
+    {
+        "GameName":"Lotto Texas",
         "Num1":45,
         "Num2":40,
         "Num3":53,
