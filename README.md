@@ -1,6 +1,6 @@
 # UiLotto
 
-To access the app on the browser, navigate to `https://chennamouli.github.io/ui-lotto/`.
+To access the app in the browser, [click here](https://chennamouli.github.io/ui-lotto/).
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.1.1.
 
